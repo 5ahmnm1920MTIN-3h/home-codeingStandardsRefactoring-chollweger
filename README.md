@@ -7,10 +7,10 @@ Mit Refactoring bezeichnet man die Überarbeitung der Struktur einer Software, o
 
 
 * Welche Vorteile/Nachteile birgt Refactoring?
-+Positiv
++ Positiv
   + Überschaubareres Script, lesbarer, strukturell verständlicher
   + Besser modifizierbar, besser testbar, redundanzen können vermieden werden 
-+Negativ
++ Negativ
   - Zusätzlicher Aufwand
 
 
