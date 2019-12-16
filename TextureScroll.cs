@@ -2,7 +2,6 @@
 
 public class TextureScroll : MonoBehaviour
 {
-
     public float scrollSpeed;
     public bool scrollBackground = true;
 
@@ -14,26 +13,12 @@ public class TextureScroll : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         if (scrollBackground)
         {
             Vector2 offset = new Vector2(scrollSpeed * Time.time, 0f);
-
             backgroundMaterial.mainTextureOffset = offset;
-
         }
     }
 }
