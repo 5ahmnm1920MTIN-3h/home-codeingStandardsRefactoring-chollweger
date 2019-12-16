@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverPanel;
     public Text scoreText;
     int score = 0;
+    const string mainScene = "MainScene";
+    const string menuScene = "MenuScene";
 
     private void Awake()
     {
@@ -49,12 +51,12 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
-        SceneManager.LoadScene("MainScene");
+        SceneManager.LoadScene("mainScene");
     }
 
     public void Menu()
     {
-        SceneManager.LoadScene("MenuScene");
+        SceneManager.LoadScene("menuScene");
     }
 
     public void IncrementScore()

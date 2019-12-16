@@ -6,6 +6,11 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     bool isGrounded;
     bool isGameOver = false;
+    const string jumpAnimation = "Jump";
+    const string santaDeathAnimation = "SantaDeath";
+    const string groundObjectTag = "Ground";
+    const string obstacleObjectTag = "Obstacle";
+
     [SerializeField] float jumpForce;
 
     private void Awake()
@@ -30,7 +35,7 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = false;
         rigidbodySanta.velocity = Vector2.up * jumpForce;
-        animator.SetTrigger("Jump");
+        animator.SetTrigger("jumpAnimation");
         GameManager.instance.IncrementScore();
         Debug.Log("DeleteMe");
     }
@@ -42,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)   
     {
-        if(collision.gameObject.tag == "Ground")
+        if(collision.gameObject.tag == "groundObjectTag")
         {
             isGrounded = true;
         }
@@ -50,10 +55,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Obstacle"){
+        if(collision.gameObject.tag == "Obstacle")
+        {
             GameManager.instance.GameOver();
             Destroy(collision.gameObject);
-            animator.Play("SantaDeath");
+            animator.Play("santaDeathAnimation");
             isGameOver = SetGameOverTrue();
         }
     }
